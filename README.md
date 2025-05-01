@@ -52,3 +52,6 @@ Expected Output:
 
 ## 🧾 License
 [MIT](LICENSE). Built for learning, prototyping, and showing off agent-powered healthcare workflows.
+
+## 💬 Questions or Ideas?
+Open an issue or hit me up &mdash; happy to help extend this into something real!
