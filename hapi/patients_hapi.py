@@ -2,6 +2,7 @@
 I was right; there are no patients with catheters in this dataset.
 Have a look at the FHIR_SERVER.
 """
+
 import requests
 
 # ------------------ Config ------------------
@@ -12,8 +13,7 @@ FHIR_SERVER = "https://hapi.fhir.org/baseR4"
 def fetch_patients_with_catheters():
     """Search for patients with catheter devices on the HAPI FHIR server."""
     url = f"{FHIR_SERVER}/Device?type=catheter&_include=Device:patient"
-    response = requests.get(url)
-    bundle = response.json()
+    bundle = requests.get(url).json()
     patient_ids = set()
     for entry in bundle.get("entry", []):
         resource = entry.get("resource", {})
