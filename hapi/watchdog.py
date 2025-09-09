@@ -28,7 +28,7 @@ class State(BaseModel):
 def fetch_patients_with_catheters():
     """Search for patients with catheter devices on the HAPI FHIR server."""
     url = f"{FHIR_SERVER}/Device?type=catheter&_include=Device:patient"
-    bundle = requests.get(url).json()
+    bundle = requests.get(url, timeout=10).json()
     patient_ids = set()
     for entry in bundle.get("entry", []):
         resource = entry.get("resource", {})
@@ -44,7 +44,7 @@ def fetch_patients_with_catheters():
 def fetch_catheter_data(patient_id):
     """Mocked logic: Searches for Device data tagged as catheter for a patient."""
     url = f"{FHIR_SERVER}/Device?patient={patient_id}&type=catheter"
-    bundle = requests.get(url).json()
+    bundle = requests.get(url, timeout=10).json()
     entries = bundle.get("entry", [])
     if not entries:
         return None

@@ -14,7 +14,7 @@ def check_server_status():
     """Check if the FHIR server is operational by making a simple request."""
     try:
         # Make a simple request to the server's metadata endpoint
-        response = requests.get(f"{settings['api_base']}/metadata")
+        response = requests.get(f"{settings['api_base']}/metadata", timeout=10)
         response.raise_for_status()
         print("Server status: OK")
         return True
