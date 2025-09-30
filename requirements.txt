@@ -1,0 +1,5 @@
+fhirclient==4.3.2
+langchain_core==0.3.76
+langgraph==0.6.8
+pydantic==2.11.7
+requests==2.32.5
